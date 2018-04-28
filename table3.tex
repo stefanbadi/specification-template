@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+\tcbuselibrary{skins}
+
+
+\begin{document}
+
+
+%The column type X takes all the space left from other columns till \textwidth or whatever you specify in the first argument.
+
+\section{Business objects}
+
+\subsection{OBJ-001 User}
+
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+ \multicolumn{3}{|c|}{\textbf{Business object description} } \\
+\hline
+\hline
+\textbf{No} & \textbf{Property} & \textbf{Additional comments}   \\
+\hline
+1 & ID & PK of user, system generated and unique \\
+\hline
+2 & USERNAME & The name of the user \\
+\hline
+2 & PWD & Password of user, encrypted with SHA \\
+\hline
+
+\end{tabularx}
+\end{table}
+
+
+
+\newpage
+
+\section{Use case section}
+
+\subsection{UC-001 Login (Test use case)}
+
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+
+ \multicolumn{2}{|c|}{\textbf{UC-001 Test usecase description} } \\
+\hline
+\hline
+\textbf{Purpose} & This use case describes the login process  \\
+\hline
+\textbf{Precondition / Trigger} & User has been registered before and UC-002 Register for users has been completed successfully
+\\
+\hline
+\textbf{Information provided} & User name, password or valid authorization of Facebook, Linked in
+\\
+\hline
+\textbf{Postcondition} & User has been logged in and is on his profile page
+\\
+\hline
+\textbf{Related screens} & SCREEN-004 Landing page
+\\
+\hline
+
+\end{tabularx}
+\end{table}
+
+\subsubsection{Process description}
+
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+\hline
+ \multicolumn{4}{|c|}{\textbf{Text description} } \\
+\hline
+\hline
+\textbf{No} & \textbf{Title of task} & \textbf{Actor} & \textbf{Additional comments}  \\
+\hline
+1 & Navigate to the landing page & User & - \\
+\hline
+2 & Choose the login option & User & If the user has registered via Facebook before, he will have to use Facebook again to login here \\
+\hline
+3 & Submit Login credentials  & User & - \\
+\hline
+4a & Check for login credentials in DB  &  System & System checks in DB for provided username and password \\
+\hline
+4b & Call Facebook API for login  &  System & In case the user has selected Facebook as login option, the login with Facebook process is invoked \\
+\hline
+5 & Redirect user to his profile page &  System & - \\
+\hline
+
+\end{tabularx}
+\end{table}
+
+
+\section{Screen section}
+In this section, the use cases are being described.
+
+\subsection{SCREEN-001 Login screen}
+Provide a mockup of how the screen should look like at the end. Balsamiq mockups are a good way to go and leave the developer with own decisions (preferred over high fidelity mockups).
+There is also a link made between the UI type and the target field in the DB and the corresponding CRUD action.
+
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|l|X|X|X|X|}
+\hline
+ \multicolumn{5}{|c|}{\textbf{Screen description} } \\
+\hline
+\hline
+\textbf{No} & \textbf{Screen name} & \textbf{Type / Name} & \textbf{Description} & \textbf{Database}  \\
+\hline
+1 & User name & Text input & For the user name  & write into USER. username  \\
+\hline
+2 & Password & Password input field & For the user password  & write into USER.pwd in encrypted format  \\
+\hline
+3 & Login & Button & Executes the login functionality  & Invokes UC-001 Login  \\
+\hline
+
+\end{tabularx}
+\end{table}
+
+\end{document}
