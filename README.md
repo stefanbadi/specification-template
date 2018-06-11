@@ -5,3 +5,5 @@
 * Part one: Business objects and their database fields
 * Part two: Use case specification
 * Part three: Screen mockup specification
+
+* Not included in this sample are diagrams, glossaries and other elements which concern the business domain
